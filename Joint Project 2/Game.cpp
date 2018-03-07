@@ -1,12 +1,12 @@
-// Name: 
-// Login: 
-// Date: 
+// Name: Patrick Darcy
+// Login: C00226157
+// Date: 07/03/2018
 // Approximate time taken: 
 //---------------------------------------------------------------------------
-// Project description Template
+// Project Description: This is a maze based game using 2D arrays
 // ---------------------------------------------------------------------------
 // Known Bugs:
-// List your bugs here
+// 
 
 //////////////////////////////////////////////////////////// 
 // Headers for SFML projects
@@ -43,25 +43,24 @@ int main()
 	return 0;
 }
 
-Game::Game() : window(sf::VideoMode(400, 300), "Project 2")
+Game::Game() : m_window(sf::VideoMode(800, 600), "Project 2")
 // Default constructor
 {
+
 }
 
 
 void Game::LoadContent()
 // load the font file & set up message
 {
-	if (!m_font.loadFromFile("ASSETS/FONTS/BebasNeue.otf"))
+	if (!m_woodFloor.loadFromFile("ASSETS/IMAGES/floor.png"))
 	{
-		std::cout << "error with font file file";
+		std::cout << "error with image file" << std::endl;
 	}
-	
-	// set up the message string 
-	m_message.setFont(m_font);  // set the font for the text
-	m_message.setCharacterSize(24); // set the text size
-	m_message.setFillColor(sf::Color::White); // set the text colour
-	m_message.setPosition(10, 10);  // its position on the screen
+
+	m_background.setTexture(m_woodFloor, true);
+	m_background.setPosition(100, 0);
+
 }
 
 
@@ -77,14 +76,14 @@ void Game::run()
 
 	clock.restart();
 
-	while (window.isOpen())
+	while (m_window.isOpen())
 	{
 		// check if the close window button is clicked on
 		sf::Event event;
-		while (window.pollEvent(event))
+		while (m_window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
-				window.close();
+				m_window.close();
 		}
 
 		//get the time since last update and restart the clock
@@ -110,7 +109,7 @@ void Game::run()
 void Game::update()
 // This function takes the keyboard input and updates the game world
 {
-
+	
 	// update any game variables here ...
 
 }
@@ -119,12 +118,19 @@ void Game::draw()
 // This function draws the game world
 {
 	// Clear the screen and draw your game sprites
-	window.clear();
+	m_window.clear();
 
-	m_message.setString("Project 2 : Game Play");
-	window.draw(m_message);  // write message to the screen
+	m_window.draw(m_background);
 
-	window.display();
+	for (int row = 0; row < MAX_ROW; row++)
+	{
+		for (int col = 0; col < MAX_COL; col++)
+		{
+			m_squares[row][col].draw(m_window);
+		}
+	}
+
+	m_window.display();
 }
 
 void Game::setUpMaze()
