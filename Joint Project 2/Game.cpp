@@ -46,6 +46,8 @@ int main()
 Game::Game() : m_window(sf::VideoMode(800, 600), "Project 2")
 // Default constructor
 {
+	m_wall = 2;
+	m_crate = 1;
 
 }
 
@@ -110,8 +112,51 @@ void Game::update()
 // This function takes the keyboard input and updates the game world
 {
 	
-	// update any game variables here ...
+}
 
+
+
+void Game::setUpMaze()
+{
+	for (int row = 0; row < MAX_ROW; row++)
+	{
+		int x = 0;
+		for (int col = 0; col < MAX_COL; col++)
+		{
+			int y = 0;
+			m_maze[row][col].setPosition(x,y);
+			y += 50;
+		}
+
+		x += 50;
+	}
+
+
+}
+
+void Game::drawMaze()
+{
+	int row = 1;
+
+	m_maze[row][6].assignTile(m_wall);
+
+	row = 2;
+
+	m_maze[row][0].assignTile(m_wall);
+	m_maze[row][1].assignTile(m_wall);
+	m_maze[row][2].assignTile(m_wall);
+	m_maze[row][4].assignTile(m_wall);
+	m_maze[row][5].assignTile(m_wall);
+	m_maze[row][6].assignTile(m_wall);
+	m_maze[row][7].assignTile(m_wall);
+	m_maze[row][9].assignTile(m_wall);
+	m_maze[row][10].assignTile(m_crate);
+	m_maze[row][11].assignTile(m_wall);
+
+	row = 3;
+
+	m_maze[row][6].assignTile(m_crate);
+	m_maze[row][11].assignTile(m_wall);
 }
 
 void Game::draw()
@@ -126,20 +171,12 @@ void Game::draw()
 	{
 		for (int col = 0; col < MAX_COL; col++)
 		{
-			m_squares[row][col].draw(m_window);
+			m_maze[row][col].draw(m_window);
 		}
 	}
 
+	drawMaze();
+	setUpMaze();
+
 	m_window.display();
-}
-
-void Game::setUpMaze()
-{
-
-}
-
-
-void Game::drawMaze()
-{
-
 }

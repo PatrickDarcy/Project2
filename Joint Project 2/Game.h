@@ -21,7 +21,10 @@ public:
 	sf::Sprite m_background; // the game background
 	sf::Texture m_woodFloor; // the game backgrounds texture
 
-	WorldSquare m_squares[12][12]; // the world grid
+	WorldSquare m_maze[12][12]; // the world grid
+
+	int m_wall;
+	int m_crate;
 
 	const int MAX_ROW = 12;
 	const int MAX_COL = 12;
