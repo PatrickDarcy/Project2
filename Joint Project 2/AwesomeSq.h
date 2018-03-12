@@ -12,13 +12,25 @@ class AwesomeSq
 	sf::Texture m_playerRight;
 
 	sf::Vector2f m_playerLocation;
-	sf::Vector2f m_speed;
+	sf::Vector2f m_speed;	
+
+	bool m_containsBlockLeft;
+	bool m_containsBlockRight;
+	bool m_containsBlockUp;
+	bool m_containsBlockDown;
 
 public:
 
 	AwesomeSq();
 	void update();
+	void wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown);
 	void moveLeft();
+	int playersLeft();
+	int playersRight();
+	int playersTop();
+	int playersBottom();
+	int playersRow();
+	int playersCol();
 	void moveRight();
 	void moveUp();
 	void moveDown();

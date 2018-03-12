@@ -11,11 +11,14 @@ class WorldSquare
 	enum squareType {empty, crate, wall};
 	squareType m_square;
 
+	bool m_solidBlock;
 
 public:
 	WorldSquare();
 	void update(int t_squareType);
 	void assignTile(int t_squareType);
 	void setPosition(int t_x, int t_y);
+	bool containsBlock();
+	sf::Vector2f getPosition();
 	void draw(sf::RenderWindow &t_window);
 };

@@ -63,8 +63,9 @@ void Game::LoadContent()
 	m_background.setTexture(m_woodFloor, true);
 	m_background.setPosition(0, 0);
 
-	tileType();
 	setUpMaze();
+	tileType();
+	
 }
 
 
@@ -113,8 +114,9 @@ void Game::run()
 void Game::update()
 // This function takes the keyboard input and updates the game world
 {
-	
 	m_Player.update();
+	m_Player.wallCheck(m_maze[m_Player.playersLeft][m_Player.playersCol].containsBlock(), m_maze[m_Player.playersRight][m_Player.playersCol].containsBlock(),
+		m_maze[m_Player.playersRow][m_Player.playersTop].containsBlock(), m_maze[m_Player.playersRow][m_Player.playersBottom].containsBlock());
 }
 
 
@@ -126,109 +128,106 @@ void Game::setUpMaze()
 
 	for (int row = 0; row < MAX_ROW; row++)
 	{
-		
+
 		for (int col = 0; col < MAX_COL; col++)
 		{
-		
-			m_maze[row][col].setPosition(m_x,m_y);
+
+			m_maze[row][col].setPosition(m_x, m_y);
 			m_x += 50;
 		}
+		m_x = 0;
 		m_y += 50;
-		
+
 	}
-
-
 }
 
 void Game::tileType()
 {
-	int col = 0;
+	int row = 0;
 
-	m_maze[6][col].assignTile(m_wall);
+	m_maze[row][6].assignTile(m_wall);
 
-	int col1 = 1;
+	int row1 = 1;
 
-	//m_maze[0][col1].assignTile(m_wall);
-	m_maze[1][col1].assignTile(m_wall);
-	m_maze[2][col1].assignTile(m_wall);
-	m_maze[4][col1].assignTile(m_wall);
-	m_maze[5][col1].assignTile(m_wall);
-	m_maze[6][col1].assignTile(m_wall);
-	m_maze[7][col1].assignTile(m_wall);
-	m_maze[9][col1].assignTile(m_wall);
-	m_maze[10][col1].assignTile(m_crate);
-	m_maze[11][col1].assignTile(m_wall);
+	m_maze[row1][0].assignTile(m_wall);
+	m_maze[row1][1].assignTile(m_wall);
+	m_maze[row1][2].assignTile(m_wall);
+	m_maze[row1][4].assignTile(m_wall);
+	m_maze[row1][5].assignTile(m_wall);
+	m_maze[row1][6].assignTile(m_wall);
+	m_maze[row1][7].assignTile(m_wall);
+	m_maze[row1][9].assignTile(m_wall);
+	m_maze[row1][10].assignTile(m_crate);
+	m_maze[row1][11].assignTile(m_wall);
 
-	int col2 = 2;
+	int row2 = 2;
 
-	m_maze[6][col2].assignTile(m_crate);
-	m_maze[11][col2].assignTile(m_wall);
+	m_maze[row2][6].assignTile(m_crate);
+	m_maze[row2][11].assignTile(m_wall);
 
-	int col3 = 3;
+	int row3 = 3;
 
-	m_maze[col3][2].assignTile(m_wall);
-	m_maze[col3][3].assignTile(m_crate);
-	m_maze[col3][4].assignTile(m_wall);
-	m_maze[col3][6].assignTile(m_wall);
-	m_maze[col3][7].assignTile(m_wall);
-	m_maze[col3][8].assignTile(m_wall);
-	m_maze[col3][9].assignTile(m_wall);
-	m_maze[col3][11].assignTile(m_wall);
+	m_maze[row3][2].assignTile(m_wall);
+	m_maze[row3][3].assignTile(m_crate);
+	m_maze[row3][4].assignTile(m_wall);
+	m_maze[row3][6].assignTile(m_wall);
+	m_maze[row3][7].assignTile(m_wall);
+	m_maze[row3][8].assignTile(m_wall);
+	m_maze[row3][9].assignTile(m_wall);
+	m_maze[row3][11].assignTile(m_wall);
 
-	int col4 = 4;
+	int row4 = 4;
 
-	m_maze[col4][9].assignTile(m_wall);
-	m_maze[col4][11].assignTile(m_wall);
+	m_maze[row4][9].assignTile(m_wall);
+	m_maze[row4][11].assignTile(m_wall);
 
-	int col5 = 5;
+	int row5 = 5;
 
-	m_maze[col5][3].assignTile(m_crate);
-	m_maze[col5][6].assignTile(m_crate);
-	m_maze[col5][11].assignTile(m_wall);
+	m_maze[row5][3].assignTile(m_crate);
+	m_maze[row5][6].assignTile(m_crate);
+	m_maze[row5][11].assignTile(m_wall);
 
-	int col6 = 6;
+	int row6 = 6;
 
-	m_maze[col6][9].assignTile(m_wall);
-	m_maze[col6][11].assignTile(m_wall);
+	m_maze[row6][9].assignTile(m_wall);
+	m_maze[row6][11].assignTile(m_wall);
 
-	int col7 = 7;
+	int row7 = 7;
 
-	m_maze[col7][6].assignTile(m_wall);
-	m_maze[col7][7].assignTile(m_wall);
-	m_maze[col7][8].assignTile(m_wall);
-	m_maze[col7][9].assignTile(m_wall);
-	m_maze[col7][11].assignTile(m_wall);
+	m_maze[row7][6].assignTile(m_wall);
+	m_maze[row7][7].assignTile(m_wall);
+	m_maze[row7][8].assignTile(m_wall);
+	m_maze[row7][9].assignTile(m_wall);
+	m_maze[row7][11].assignTile(m_wall);
 
-	int col8 = 8;
+	int row8 = 8;
 
-	m_maze[col8][2].assignTile(m_wall);
-	m_maze[col8][3].assignTile(m_crate);
-	m_maze[col8][4].assignTile(m_wall);
-	m_maze[col8][6].assignTile(m_wall);
-	m_maze[col8][11].assignTile(m_wall);
+	m_maze[row8][2].assignTile(m_wall);
+	m_maze[row8][3].assignTile(m_crate);
+	m_maze[row8][4].assignTile(m_wall);
+	m_maze[row8][6].assignTile(m_wall);
+	m_maze[row8][11].assignTile(m_wall);
 
-	int col9 = 9;
+	int row9 = 9;
 
-	m_maze[col9][7].assignTile(m_crate);
-	m_maze[col9][9].assignTile(m_wall);
-	m_maze[col9][10].assignTile(m_crate);
-	m_maze[col9][11].assignTile(m_wall);
+	m_maze[row9][7].assignTile(m_crate);
+	m_maze[row9][9].assignTile(m_wall);
+	m_maze[row9][10].assignTile(m_crate);
+	m_maze[row9][11].assignTile(m_wall);
 
-	int col10 = 10;
+	int row10 = 10;
 
-	m_maze[col10][0].assignTile(m_wall);
-	m_maze[col10][1].assignTile(m_wall);
-	m_maze[col10][2].assignTile(m_wall);
-	m_maze[col10][4].assignTile(m_wall);
-	m_maze[col10][5].assignTile(m_wall);
-	m_maze[col10][6].assignTile(m_wall);
+	m_maze[row10][0].assignTile(m_wall);
+	m_maze[row10][1].assignTile(m_wall);
+	m_maze[row10][2].assignTile(m_wall);
+	m_maze[row10][4].assignTile(m_wall);
+	m_maze[row10][5].assignTile(m_wall);
+	m_maze[row10][6].assignTile(m_wall);
 
-	int col11 = 11;
+	int row11 = 11;
 
-	m_maze[col11][6].assignTile(m_wall);
-	m_maze[0][0].assignTile(m_wall);
-	m_maze[0][1].assignTile(m_wall);
-	m_maze[0][3].assignTile(m_wall);
+	m_maze[row11][6].assignTile(m_wall);
+
 
 }
 

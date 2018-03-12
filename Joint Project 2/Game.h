@@ -22,7 +22,7 @@ public:
 	sf::Sprite m_background; // the game background
 	sf::Texture m_woodFloor; // the game backgrounds texture
 
-	WorldSquare m_maze[12][12]; // the world grid
+	WorldSquare m_maze[MAX_ROW][MAX_COL]; // the world grid
 
 	int m_wall;
 	int m_crate;

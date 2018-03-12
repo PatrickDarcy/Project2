@@ -11,23 +11,27 @@ AwesomeSq::AwesomeSq()
 	m_player.setSize(sf::Vector2f{ PLAYER_SIZE,PLAYER_SIZE });
 	m_player.setPosition(m_playerLocation);
 
+	m_containsBlockLeft = false;
+	m_containsBlockRight = false;
+	m_containsBlockUp = false;
+	m_containsBlockDown = false;
 }
 
 void AwesomeSq::update()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		moveLeft();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		moveRight();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		moveUp();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		moveDown();
 	}
@@ -35,33 +39,95 @@ void AwesomeSq::update()
 	checkBoarder();
 }
 
+void AwesomeSq::wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown)
+{
+	if (t_containsBlockLeft == true)
+	{
+		m_containsBlockLeft = t_containsBlockLeft;
+	}
+	if (t_containsBlockRight == true)
+	{
+		m_containsBlockRight = t_containsBlockRight;
+	}
+	if (t_containsBlockUp == true)
+	{
+		m_containsBlockUp = t_containsBlockUp;
+	}
+	if (t_containsBlockDown == true)
+	{
+		m_containsBlockDown = t_containsBlockDown;
+	}
+}
+
 
 void AwesomeSq::moveLeft()
 {
-	m_playerLocation.x -= m_speed.x;
-	m_player.setPosition(m_playerLocation);
-	//m_player.setTexture(m_playerLeft);
+	if (m_containsBlockLeft = false)
+	{
+		m_playerLocation.x -= m_speed.x;
+		m_player.setPosition(m_playerLocation);
+		//m_player.setTexture(m_playerLeft);
+	}
+}
+
+int AwesomeSq::playersLeft()
+{
+	return ((m_player.getPosition().x) / 50) - 1;
+}
+
+int AwesomeSq::playersRight()
+{
+	return ((m_player.getPosition().x) / 50) + 1;
+}
+
+int AwesomeSq::playersTop()
+{
+	return ((m_player.getPosition().y) / 50) - 1;
+}
+
+int AwesomeSq::playersBottom()
+{
+	return ((m_player.getPosition().y) / 50) + 1;
+}
+
+int AwesomeSq::playersRow()
+{
+	return (m_player.getPosition().y) / 50;
+}
+
+int AwesomeSq::playersCol()
+{
+	return (m_player.getPosition().x) / 50;
 }
 
 void AwesomeSq::moveRight()
 {
-	m_playerLocation.x += m_speed.x;
-	m_player.setPosition(m_playerLocation);
-	//m_player.setTexture(m_playerRight);
+	if (m_containsBlockRight = false)
+	{
+		m_playerLocation.x += m_speed.x;
+		m_player.setPosition(m_playerLocation);
+		//m_player.setTexture(m_playerRight);
+	}
 }
 
 void AwesomeSq::moveUp()
 {
-	m_playerLocation.y -= m_speed.y;
-	m_player.setPosition(m_playerLocation);
-	//m_player.setTexture(m_playerUp);
+	if (m_containsBlockUp = false)
+	{
+		m_playerLocation.y -= m_speed.y;
+		m_player.setPosition(m_playerLocation);
+		//m_player.setTexture(m_playerUp);
+	}
 }
 
 void AwesomeSq::moveDown()
 {
-	m_playerLocation.y += m_speed.y;
-	m_player.setPosition(m_playerLocation);
-	//m_player.setTexture(m_playerDown);
+	if (m_containsBlockDown = false)
+	{
+		m_playerLocation.y += m_speed.y;
+		m_player.setPosition(m_playerLocation);
+		//m_player.setTexture(m_playerDown);
+	}
 }
 
 void AwesomeSq::checkBoarder()
