@@ -115,8 +115,8 @@ void Game::update()
 // This function takes the keyboard input and updates the game world
 {
 	m_Player.update();
-	m_Player.wallCheck(m_maze[m_Player.playersLeft][m_Player.playersCol].containsBlock(), m_maze[m_Player.playersRight][m_Player.playersCol].containsBlock(),
-		m_maze[m_Player.playersRow][m_Player.playersTop].containsBlock(), m_maze[m_Player.playersRow][m_Player.playersBottom].containsBlock());
+	m_Player.wallCheck(m_maze[m_Player.playersLeft()][m_Player.playersRow()].containsBlock(), m_maze[m_Player.playersRight()][m_Player.playersCol()].containsBlock(),
+					   m_maze[m_Player.playersRow()][m_Player.playersTop()].containsBlock(), m_maze[m_Player.playersRow()][m_Player.playersBottom()].containsBlock());
 }
 
 

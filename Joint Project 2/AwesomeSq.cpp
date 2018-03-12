@@ -8,7 +8,7 @@ AwesomeSq::AwesomeSq()
 	m_speed = { 2.5,2.5 };
 
 	m_player.setFillColor(sf::Color::Blue);
-	m_player.setSize(sf::Vector2f{ PLAYER_SIZE,PLAYER_SIZE });
+	m_player.setSize(sf::Vector2f{ 49,49 });
 	m_player.setPosition(m_playerLocation);
 
 	m_containsBlockLeft = false;
@@ -59,10 +59,85 @@ void AwesomeSq::wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, b
 	}
 }
 
+int AwesomeSq::playersLeft()
+{
+	int playerLeft = ((m_player.getPosition().x) / 50) - 1;
+	/*if (playerLeft >= MAX_COL)
+	{
+		playerLeft = 11;
+	}
+	if (playerLeft < 0)
+	{
+		playerLeft = 0;
+	}*/
+	return playerLeft;
+}
+
+int AwesomeSq::playersRight()
+{
+	int playerRight = ((m_player.getPosition().x) / 50) + 1;
+	/*if (playerRight >= MAX_COL)
+	{
+		playerRight = 11;
+	}
+	if (playerRight < 0)
+	{
+		playerRight = 0;
+	}*/
+	return playerRight;
+}
+
+int AwesomeSq::playersTop()
+{
+	int playerUp = ((m_player.getPosition().y) / 50) - 1;
+	//if (playerUp >= MAX_COL)
+	//{
+	//	playerUp = 11;
+	//}
+	//if (playerUp < 0)
+	//{
+	//	playerUp = 0;
+	//}
+	return playerUp;
+}
+
+int AwesomeSq::playersBottom()
+{
+	int playerDown = ((m_player.getPosition().y) / 50.0) + 1;
+	//if (playerDown >= MAX_COL)
+	//{
+	//	playerDown = 11;
+	//}
+	//if (playerDown < 0)
+	//{
+	//	playerDown = 0;
+	//}
+	return playerDown;
+}
+
+int AwesomeSq::playersRow()
+{
+	int playerRow = (m_player.getPosition().y) / 50;
+	/*if (playerRow == MAX_ROW)
+	{
+		playerRow = 11;
+	}*/
+	return playerRow;
+}
+
+int AwesomeSq::playersCol()
+{
+	int playerCol = (m_player.getPosition().x) / 50;
+	/*if (playerCol == MAX_COL)
+	{
+		playerCol = 11;
+	}*/
+	return playerCol;
+}
 
 void AwesomeSq::moveLeft()
 {
-	if (m_containsBlockLeft = false)
+	if (m_containsBlockLeft == false)
 	{
 		m_playerLocation.x -= m_speed.x;
 		m_player.setPosition(m_playerLocation);
@@ -70,39 +145,9 @@ void AwesomeSq::moveLeft()
 	}
 }
 
-int AwesomeSq::playersLeft()
-{
-	return ((m_player.getPosition().x) / 50) - 1;
-}
-
-int AwesomeSq::playersRight()
-{
-	return ((m_player.getPosition().x) / 50) + 1;
-}
-
-int AwesomeSq::playersTop()
-{
-	return ((m_player.getPosition().y) / 50) - 1;
-}
-
-int AwesomeSq::playersBottom()
-{
-	return ((m_player.getPosition().y) / 50) + 1;
-}
-
-int AwesomeSq::playersRow()
-{
-	return (m_player.getPosition().y) / 50;
-}
-
-int AwesomeSq::playersCol()
-{
-	return (m_player.getPosition().x) / 50;
-}
-
 void AwesomeSq::moveRight()
 {
-	if (m_containsBlockRight = false)
+	if (m_containsBlockRight == false)
 	{
 		m_playerLocation.x += m_speed.x;
 		m_player.setPosition(m_playerLocation);
@@ -112,7 +157,7 @@ void AwesomeSq::moveRight()
 
 void AwesomeSq::moveUp()
 {
-	if (m_containsBlockUp = false)
+	if (m_containsBlockUp == false)
 	{
 		m_playerLocation.y -= m_speed.y;
 		m_player.setPosition(m_playerLocation);
@@ -122,7 +167,7 @@ void AwesomeSq::moveUp()
 
 void AwesomeSq::moveDown()
 {
-	if (m_containsBlockDown = false)
+	if (m_containsBlockDown == false)
 	{
 		m_playerLocation.y += m_speed.y;
 		m_player.setPosition(m_playerLocation);

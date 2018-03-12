@@ -1,18 +1,9 @@
-﻿  Game.cpp
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(74): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(118): error C3867: 'AwesomeSq::playersLeft': non-standard syntax; use '&' to create a pointer to member
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(118): error C2107: illegal index, indirection not allowed
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(118): error C2228: left of '.containsBlock' must have class/struct/union
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(118): error C3867: 'AwesomeSq::playersRight': non-standard syntax; use '&' to create a pointer to member
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(119): error C3867: 'AwesomeSq::playersRow': non-standard syntax; use '&' to create a pointer to member
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(119): error C2107: illegal index, indirection not allowed
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(119): error C2228: left of '.containsBlock' must have class/struct/union
-c:\users\c00226157\desktop\temp\project2\joint project 2\game.cpp(119): error C2660: 'AwesomeSq::wallCheck': function does not take 1 arguments
-  AwesomeSq.cpp
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(75): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(80): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(85): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(90): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(95): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(100): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+﻿  AwesomeSq.cpp
+c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(64): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(78): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(92): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(106): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(120): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(130): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Joint Project 2.vcxproj -> C:\Users\C00226157\Desktop\temp\Project2\Debug\Joint Project 2.exe
+  Joint Project 2.vcxproj -> C:\Users\C00226157\Desktop\temp\Project2\Debug\Joint Project 2.pdb (Partial PDB)
