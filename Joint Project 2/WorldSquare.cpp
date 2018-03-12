@@ -1,8 +1,19 @@
 #include "WorldSquare.h"
+#include <iostream>
 
 WorldSquare::WorldSquare()
 {
+	if (!m_wall.loadFromFile("ASSETS/IMAGES/stoneWall.png"))
+	{
+		std::cout << "error with image file" << std::endl;
+	}
+	if (!m_crate.loadFromFile("ASSETS/IMAGES/woodCrate.png"))
+	{
+		std::cout << "error with image file" << std::endl;
+	}
+
 	m_square = empty;
+	
 }
 
 void WorldSquare::update(int t_squareType)
@@ -11,15 +22,15 @@ void WorldSquare::update(int t_squareType)
 
 void WorldSquare::assignTile(int t_squareType)
 {
-	if (t_squareType == crate)
+	if (t_squareType == 1)
 	{
 		m_square = crate;
 	}
-	else if (t_squareType == wall)
+	if (t_squareType == 2)
 	{
 		m_square = wall;
 	}
-	else
+	if (t_squareType == 0)
 	{
 		m_square = empty;
 	}

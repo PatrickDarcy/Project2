@@ -43,7 +43,7 @@ int main()
 	return 0;
 }
 
-Game::Game() : m_window(sf::VideoMode(800, 600), "Project 2")
+Game::Game() : m_window(sf::VideoMode(600, 600), "Project 2")
 // Default constructor
 {
 	m_wall = 2;
@@ -61,8 +61,10 @@ void Game::LoadContent()
 	}
 
 	m_background.setTexture(m_woodFloor, true);
-	m_background.setPosition(100, 0);
+	m_background.setPosition(0, 0);
 
+	tileType();
+	setUpMaze();
 }
 
 
@@ -112,51 +114,122 @@ void Game::update()
 // This function takes the keyboard input and updates the game world
 {
 	
+	m_Player.update();
 }
 
 
 
 void Game::setUpMaze()
 {
+	int m_x = 0;
+	int m_y = 0;
+
 	for (int row = 0; row < MAX_ROW; row++)
 	{
-		int x = 0;
+		
 		for (int col = 0; col < MAX_COL; col++)
 		{
-			int y = 0;
-			m_maze[row][col].setPosition(x,y);
-			y += 50;
+		
+			m_maze[row][col].setPosition(m_x,m_y);
+			m_x += 50;
 		}
-
-		x += 50;
+		m_y += 50;
+		
 	}
 
 
 }
 
-void Game::drawMaze()
+void Game::tileType()
 {
-	int row = 1;
+	int col = 0;
 
-	m_maze[row][6].assignTile(m_wall);
+	m_maze[6][col].assignTile(m_wall);
 
-	row = 2;
+	int col1 = 1;
 
-	m_maze[row][0].assignTile(m_wall);
-	m_maze[row][1].assignTile(m_wall);
-	m_maze[row][2].assignTile(m_wall);
-	m_maze[row][4].assignTile(m_wall);
-	m_maze[row][5].assignTile(m_wall);
-	m_maze[row][6].assignTile(m_wall);
-	m_maze[row][7].assignTile(m_wall);
-	m_maze[row][9].assignTile(m_wall);
-	m_maze[row][10].assignTile(m_crate);
-	m_maze[row][11].assignTile(m_wall);
+	//m_maze[0][col1].assignTile(m_wall);
+	m_maze[1][col1].assignTile(m_wall);
+	m_maze[2][col1].assignTile(m_wall);
+	m_maze[4][col1].assignTile(m_wall);
+	m_maze[5][col1].assignTile(m_wall);
+	m_maze[6][col1].assignTile(m_wall);
+	m_maze[7][col1].assignTile(m_wall);
+	m_maze[9][col1].assignTile(m_wall);
+	m_maze[10][col1].assignTile(m_crate);
+	m_maze[11][col1].assignTile(m_wall);
 
-	row = 3;
+	int col2 = 2;
 
-	m_maze[row][6].assignTile(m_crate);
-	m_maze[row][11].assignTile(m_wall);
+	m_maze[6][col2].assignTile(m_crate);
+	m_maze[11][col2].assignTile(m_wall);
+
+	int col3 = 3;
+
+	m_maze[col3][2].assignTile(m_wall);
+	m_maze[col3][3].assignTile(m_crate);
+	m_maze[col3][4].assignTile(m_wall);
+	m_maze[col3][6].assignTile(m_wall);
+	m_maze[col3][7].assignTile(m_wall);
+	m_maze[col3][8].assignTile(m_wall);
+	m_maze[col3][9].assignTile(m_wall);
+	m_maze[col3][11].assignTile(m_wall);
+
+	int col4 = 4;
+
+	m_maze[col4][9].assignTile(m_wall);
+	m_maze[col4][11].assignTile(m_wall);
+
+	int col5 = 5;
+
+	m_maze[col5][3].assignTile(m_crate);
+	m_maze[col5][6].assignTile(m_crate);
+	m_maze[col5][11].assignTile(m_wall);
+
+	int col6 = 6;
+
+	m_maze[col6][9].assignTile(m_wall);
+	m_maze[col6][11].assignTile(m_wall);
+
+	int col7 = 7;
+
+	m_maze[col7][6].assignTile(m_wall);
+	m_maze[col7][7].assignTile(m_wall);
+	m_maze[col7][8].assignTile(m_wall);
+	m_maze[col7][9].assignTile(m_wall);
+	m_maze[col7][11].assignTile(m_wall);
+
+	int col8 = 8;
+
+	m_maze[col8][2].assignTile(m_wall);
+	m_maze[col8][3].assignTile(m_crate);
+	m_maze[col8][4].assignTile(m_wall);
+	m_maze[col8][6].assignTile(m_wall);
+	m_maze[col8][11].assignTile(m_wall);
+
+	int col9 = 9;
+
+	m_maze[col9][7].assignTile(m_crate);
+	m_maze[col9][9].assignTile(m_wall);
+	m_maze[col9][10].assignTile(m_crate);
+	m_maze[col9][11].assignTile(m_wall);
+
+	int col10 = 10;
+
+	m_maze[col10][0].assignTile(m_wall);
+	m_maze[col10][1].assignTile(m_wall);
+	m_maze[col10][2].assignTile(m_wall);
+	m_maze[col10][4].assignTile(m_wall);
+	m_maze[col10][5].assignTile(m_wall);
+	m_maze[col10][6].assignTile(m_wall);
+
+	int col11 = 11;
+
+	m_maze[col11][6].assignTile(m_wall);
+	m_maze[0][0].assignTile(m_wall);
+	m_maze[0][1].assignTile(m_wall);
+	m_maze[0][3].assignTile(m_wall);
+
 }
 
 void Game::draw()
@@ -175,8 +248,6 @@ void Game::draw()
 		}
 	}
 
-	drawMaze();
-	setUpMaze();
-
+	m_Player.draw(m_window);
 	m_window.display();
 }

@@ -9,6 +9,7 @@
 #include "AwesomeSq.h"   // include AwesomeSq header file
 #include "EvilSq.h"   // include EvilSq header file
 #include "WorldSquare.h" // include WorldSquare header file
+#include "Global.h"
 
 class Game
 {
@@ -26,8 +27,7 @@ public:
 	int m_wall;
 	int m_crate;
 
-	const int MAX_ROW = 12;
-	const int MAX_COL = 12;
+	AwesomeSq m_Player;
 
 public:	  // declaration of member functions	
 	Game();  // default constructor
@@ -36,6 +36,6 @@ public:	  // declaration of member functions
 	void	update();
 	void	draw();
 	void	setUpMaze();
-	void	drawMaze();
+	void	tileType();
 };
 
