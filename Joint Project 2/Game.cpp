@@ -144,89 +144,83 @@ void Game::setUpMaze()
 void Game::tileType()
 {
 	int row = 0;
-
-	m_maze[row][6].assignTile(m_wall);
+	int col = 0;
+	for (int i = 0; i < MAX_COL; i++)
+	{
+		m_maze[row][i].assignTile(m_wall);
+		m_maze[i][col].assignTile(m_wall);
+	}
 
 	int row1 = 1;
-
-	m_maze[row1][0].assignTile(m_wall);
-	m_maze[row1][1].assignTile(m_wall);
-	m_maze[row1][2].assignTile(m_wall);
-	m_maze[row1][4].assignTile(m_wall);
-	m_maze[row1][5].assignTile(m_wall);
+	
 	m_maze[row1][6].assignTile(m_wall);
-	m_maze[row1][7].assignTile(m_wall);
-	m_maze[row1][9].assignTile(m_wall);
-	m_maze[row1][10].assignTile(m_crate);
-	m_maze[row1][11].assignTile(m_wall);
 
 	int row2 = 2;
 
-	m_maze[row2][6].assignTile(m_crate);
-	m_maze[row2][11].assignTile(m_wall);
+	m_maze[row2][1].assignTile(m_wall);
+	m_maze[row2][2].assignTile(m_wall);
+	m_maze[row2][4].assignTile(m_wall);
+	m_maze[row2][5].assignTile(m_wall);
+	m_maze[row2][6].assignTile(m_wall);
 
 	int row3 = 3;
 
-	m_maze[row3][2].assignTile(m_wall);
-	m_maze[row3][3].assignTile(m_crate);
-	m_maze[row3][4].assignTile(m_wall);
 	m_maze[row3][6].assignTile(m_wall);
-	m_maze[row3][7].assignTile(m_wall);
 	m_maze[row3][8].assignTile(m_wall);
-	m_maze[row3][9].assignTile(m_wall);
-	m_maze[row3][11].assignTile(m_wall);
+	m_maze[row3][9].assignTile(m_crate);
+	m_maze[row3][10].assignTile(m_wall);
+	
 
 	int row4 = 4;
 
-	m_maze[row4][9].assignTile(m_wall);
-	m_maze[row4][11].assignTile(m_wall);
+	m_maze[row4][2].assignTile(m_wall);
+	m_maze[row4][3].assignTile(m_crate);
+	m_maze[row4][4].assignTile(m_wall);
+	m_maze[row4][8].assignTile(m_wall);
 
 	int row5 = 5;
 
-	m_maze[row5][3].assignTile(m_crate);
-	m_maze[row5][6].assignTile(m_crate);
-	m_maze[row5][11].assignTile(m_wall);
+	m_maze[row5][6].assignTile(m_wall);
+	m_maze[row5][8].assignTile(m_wall);
+
 
 	int row6 = 6;
 
-	m_maze[row6][9].assignTile(m_wall);
-	m_maze[row6][11].assignTile(m_wall);
+	m_maze[row6][6].assignTile(m_crate);
+	
 
 	int row7 = 7;
 
 	m_maze[row7][6].assignTile(m_wall);
-	m_maze[row7][7].assignTile(m_wall);
 	m_maze[row7][8].assignTile(m_wall);
-	m_maze[row7][9].assignTile(m_wall);
-	m_maze[row7][11].assignTile(m_wall);
 
 	int row8 = 8;
 
 	m_maze[row8][2].assignTile(m_wall);
 	m_maze[row8][3].assignTile(m_crate);
 	m_maze[row8][4].assignTile(m_wall);
-	m_maze[row8][6].assignTile(m_wall);
-	m_maze[row8][11].assignTile(m_wall);
+	m_maze[row8][8].assignTile(m_wall);
+
 
 	int row9 = 9;
 
-	m_maze[row9][7].assignTile(m_crate);
-	m_maze[row9][9].assignTile(m_wall);
-	m_maze[row9][10].assignTile(m_crate);
-	m_maze[row9][11].assignTile(m_wall);
+	m_maze[row9][6].assignTile(m_wall);
+	m_maze[row9][8].assignTile(m_wall);
+	m_maze[row9][9].assignTile(m_crate);
+	m_maze[row9][10].assignTile(m_wall);
 
 	int row10 = 10;
 
-	m_maze[row10][0].assignTile(m_wall);
-	m_maze[row10][1].assignTile(m_wall);
-	m_maze[row10][2].assignTile(m_wall);
-	m_maze[row10][4].assignTile(m_wall);
-	m_maze[row10][5].assignTile(m_wall);
 	m_maze[row10][6].assignTile(m_wall);
 
 	int row11 = 11;
+	col = 11;
 
-	m_maze[row11][6].assignTile(m_wall);
+	for (int i = 0; i < MAX_COL; i++)
+	{
+		m_maze[row11][i].assignTile(m_wall);
+		m_maze[i][col].assignTile(m_wall);
+	}
 
 
 }
