@@ -61,77 +61,77 @@ void AwesomeSq::wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, b
 
 int AwesomeSq::playersLeft()
 {
-	int playerLeft = ((m_player.getPosition().x) / 50) - 1;
-	/*if (playerLeft >= MAX_COL)
+	int playerLeft = (((m_player.getPosition().x) + 50) / 50) - 1;
+	if (playerLeft >= MAX_COL)
 	{
 		playerLeft = 11;
 	}
 	if (playerLeft < 0)
 	{
 		playerLeft = 0;
-	}*/
+	}
 	return playerLeft;
 }
 
 int AwesomeSq::playersRight()
 {
-	int playerRight = ((m_player.getPosition().x) / 50) + 1;
-	/*if (playerRight >= MAX_COL)
+	int playerRight = (((m_player.getPosition().x) + 50) / 50) + 1;
+	if (playerRight >= MAX_COL)
 	{
 		playerRight = 11;
 	}
 	if (playerRight < 0)
 	{
 		playerRight = 0;
-	}*/
+	}
 	return playerRight;
 }
 
 int AwesomeSq::playersTop()
 {
-	int playerUp = ((m_player.getPosition().y) / 50) - 1;
-	//if (playerUp >= MAX_COL)
-	//{
-	//	playerUp = 11;
-	//}
-	//if (playerUp < 0)
-	//{
-	//	playerUp = 0;
-	//}
+	int playerUp = (((m_player.getPosition().y) + 50) / 50) - 1;
+	if (playerUp >= MAX_COL)
+	{
+		playerUp = 11;
+	}
+	if (playerUp < 0)
+	{
+		playerUp = 0;
+	}
 	return playerUp;
 }
 
 int AwesomeSq::playersBottom()
 {
-	int playerDown = ((m_player.getPosition().y) / 50.0) + 1;
-	//if (playerDown >= MAX_COL)
-	//{
-	//	playerDown = 11;
-	//}
-	//if (playerDown < 0)
-	//{
-	//	playerDown = 0;
-	//}
+	int playerDown = (((m_player.getPosition().y) + 50) / 50) + 1;
+	if (playerDown >= MAX_COL)
+	{
+		playerDown = 11;
+	}
+	if (playerDown < 0)
+	{
+		playerDown = 0;
+	}
 	return playerDown;
 }
 
 int AwesomeSq::playersRow()
 {
-	int playerRow = (m_player.getPosition().y) / 50;
-	/*if (playerRow == MAX_ROW)
+	int playerRow = ((m_player.getPosition().y) + 50) / 50;
+	if (playerRow >= MAX_ROW)
 	{
 		playerRow = 11;
-	}*/
+	}
 	return playerRow;
 }
 
 int AwesomeSq::playersCol()
 {
-	int playerCol = (m_player.getPosition().x) / 50;
-	/*if (playerCol == MAX_COL)
+	int playerCol = ((m_player.getPosition().x) + 50) / 50;
+	if (playerCol == MAX_COL)
 	{
 		playerCol = 11;
-	}*/
+	}
 	return playerCol;
 }
 

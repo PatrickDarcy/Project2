@@ -2,7 +2,7 @@
 c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(64): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(78): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(92): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(106): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(106): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(120): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(130): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Joint Project 2.vcxproj -> C:\Users\C00226157\Desktop\temp\Project2\Debug\Joint Project 2.exe
