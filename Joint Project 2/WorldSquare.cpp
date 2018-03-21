@@ -12,6 +12,7 @@ WorldSquare::WorldSquare()
 		std::cout << "error with image file" << std::endl;
 	}
 
+	m_square = empty;
 	m_solidBlock = false;	
 }
 

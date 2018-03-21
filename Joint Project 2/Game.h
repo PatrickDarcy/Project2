@@ -27,6 +27,7 @@ public:
 	int m_wall;
 	int m_crate;
 
+	EvilSq m_enemies[2];
 	AwesomeSq m_Player;
 
 public:	  // declaration of member functions	

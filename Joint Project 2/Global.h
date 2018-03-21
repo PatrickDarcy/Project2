@@ -6,4 +6,6 @@ static const int SCREEN_HEIGHT = 600;
 static const int MAX_ROW = 12;
 static const int MAX_COL = 12;
 
-const float PLAYER_SIZE = 50.0;
+const float SQUARE_SIZE = 50.0;
+
+const int MAX_ENEMIES = 2;

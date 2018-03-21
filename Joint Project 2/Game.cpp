@@ -63,6 +63,14 @@ void Game::LoadContent()
 	m_background.setTexture(m_woodFloor, true);
 	m_background.setPosition(0, 0);
 
+	sf::Vector2f enemyPos = { 50,500 };
+
+	for (int i = 0; i < MAX_ENEMIES; i++)
+	{
+		m_enemies[i].setPosition(enemyPos);
+		enemyPos.x += 200;
+	}
+
 	setUpMaze();
 	tileType();
 	
@@ -115,8 +123,8 @@ void Game::update()
 // This function takes the keyboard input and updates the game world
 {
 	m_Player.update();
-	m_Player.wallCheck(m_maze[m_Player.playersLeft()][m_Player.playersRow()].containsBlock(), m_maze[m_Player.playersRight()][m_Player.playersCol()].containsBlock(),
-					   m_maze[m_Player.playersRow()][m_Player.playersTop()].containsBlock(), m_maze[m_Player.playersRow()][m_Player.playersBottom()].containsBlock());
+	m_Player.wallCheck(m_maze[m_Player.playersRow()][m_Player.leftOfPlayer()].containsBlock(), m_maze[m_Player.playersRow()][m_Player.rightOfPlayer()].containsBlock(),
+					   m_maze[m_Player.abovePlayer()][m_Player.playersCol()].containsBlock(), m_maze[m_Player.bellowPlayer()][m_Player.playersCol()].containsBlock());
 }
 
 
@@ -239,6 +247,10 @@ void Game::draw()
 		{
 			m_maze[row][col].draw(m_window);
 		}
+	}
+	for (int i = 0; i < MAX_ENEMIES; i++)
+	{
+		m_enemies[i].draw(m_window);
 	}
 
 	m_Player.draw(m_window);

@@ -14,6 +14,9 @@ class AwesomeSq
 	sf::Vector2f m_playerLocation;
 	sf::Vector2f m_speed;	
 
+	enum direction {EAST,WEST,SOUTH,NORTH};
+	direction m_playersDirection;
+
 	bool m_containsBlockLeft;
 	bool m_containsBlockRight;
 	bool m_containsBlockUp;
@@ -25,10 +28,10 @@ public:
 	void update();
 	void wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown);
 	void moveLeft();
-	int playersLeft();
-	int playersRight();
-	int playersTop();
-	int playersBottom();
+	int leftOfPlayer();
+	int rightOfPlayer();
+	int abovePlayer();
+	int bellowPlayer();
 	int playersRow();
 	int playersCol();
 	void moveRight();
