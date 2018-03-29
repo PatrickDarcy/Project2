@@ -63,14 +63,6 @@ void Game::LoadContent()
 	m_background.setTexture(m_woodFloor, true);
 	m_background.setPosition(0, 0);
 
-	sf::Vector2f enemyPos = { 50,500 };
-
-	for (int i = 0; i < MAX_ENEMIES; i++)
-	{
-		m_enemies[i].setPosition(enemyPos);
-		enemyPos.x += 200;
-	}
-
 	setUpMaze();
 	tileType();
 	
@@ -125,7 +117,57 @@ void Game::update()
 	m_Player.update();
 	m_Player.wallCheck(m_maze[m_Player.playersRow()][m_Player.leftOfPlayer()].containsBlock(), m_maze[m_Player.playersRow()][m_Player.rightOfPlayer()].containsBlock(),
 					   m_maze[m_Player.abovePlayer()][m_Player.playersCol()].containsBlock(), m_maze[m_Player.bellowPlayer()][m_Player.playersCol()].containsBlock());
+	for (int i = 0; i < MAX_ENEMIES; i++)
+	{
+		m_enemies[i].update(m_maze[m_enemies[i].enemyRow()][m_enemies[i].leftOfEnemy()].containsBlock(), m_maze[m_enemies[i].enemyRow()][m_enemies[i].rightOfEnemy()].containsBlock(),
+			m_maze[m_enemies[i].aboveEnemy()][m_enemies[i].enemyCol()].containsBlock(), m_maze[m_enemies[i].bellowEnemy()][m_enemies[i].enemyCol()].containsBlock());
+	}
+	
+
+	for (int row = 0; row < MAX_ROW; row++)
+	{
+		for (int col = 0; col < MAX_COL; col++)
+		{
+			m_maze[row][col].update(m_Player.playerKicked(), m_Player.playersDIrection(), m_Player.getPosition());
+		}
+	}
 }
+
+//void Game::movingKickedCrate()
+//{
+//	sf::Vector2f movingCrate;
+//	sf::Vector2f crateSpeed = { 2.5,2.5 };
+//
+//	for (int row = 0; row < MAX_ROW; row++)
+//	{
+//
+//		for (int col = 0; col < MAX_COL; col++)
+//		{
+//			movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].getPosition();
+//
+//			if (m_Player.playersDIrection() == EAST)
+//			{
+//				movingCrate.x += crateSpeed.x;
+//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
+//			}
+//			if (m_Player.playersDIrection() == WEST)
+//			{
+//				movingCrate.x -= crateSpeed.x;
+//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
+//			}
+//			if (m_Player.playersDIrection() == NORTH)
+//			{
+//				movingCrate.y -= crateSpeed.y;
+//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
+//			}
+//			if (m_Player.playersDIrection() == EAST)
+//			{
+//				movingCrate.y += crateSpeed.y;
+//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
+//			}
+//		}
+//	}
+//}
 
 
 

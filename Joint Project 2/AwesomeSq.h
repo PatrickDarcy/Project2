@@ -21,12 +21,15 @@ class AwesomeSq
 	bool m_containsBlockRight;
 	bool m_containsBlockUp;
 	bool m_containsBlockDown;
+	bool m_didPlayerKick;
 
 public:
 
 	AwesomeSq();
 	void update();
 	void wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown);
+	int playersDIrection();
+	bool playerKicked();
 	void moveLeft();
 	int leftOfPlayer();
 	int rightOfPlayer();
@@ -34,6 +37,7 @@ public:
 	int bellowPlayer();
 	int playersRow();
 	int playersCol();
+	sf::Vector2f getPosition();
 	void moveRight();
 	void moveUp();
 	void moveDown();

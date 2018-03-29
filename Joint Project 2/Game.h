@@ -35,6 +35,7 @@ public:	  // declaration of member functions
 	void	LoadContent();
 	void	run();
 	void	update();
+	void	movingKickedCrate();
 	void	draw();
 	void	setUpMaze();
 	void	tileType();

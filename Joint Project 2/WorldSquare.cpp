@@ -16,8 +16,9 @@ WorldSquare::WorldSquare()
 	m_solidBlock = false;	
 }
 
-void WorldSquare::update(int t_squareType)
+void WorldSquare::update(bool t_crateKicked, int t_playerDirection, sf::Vector2f t_playerPos)
 {
+	crateKicked(t_crateKicked, t_playerDirection, t_playerPos);
 }
 
 void WorldSquare::assignTile(int t_squareType)
@@ -44,9 +45,41 @@ void WorldSquare::setPosition(int t_x, int t_y)
 	m_worldSquare.setPosition(t_x, t_y);
 }
 
+void WorldSquare::crateKicked(bool t_crateKicked, int t_playerDirection, sf::Vector2f t_playerPos)
+{
+	if (t_crateKicked == true)
+	{
+		if (t_playerDirection == EAST)
+		{
+			m_blockFacingPlayer.x = (t_playerPos.x / 50) + 1;
+			m_blockFacingPlayer.y = (t_playerPos.y / 50);
+		}
+		else if (t_playerDirection == WEST)
+		{
+			m_blockFacingPlayer.x = (t_playerPos.x / 50) - 1;
+			m_blockFacingPlayer.y = (t_playerPos.y / 50);
+		}
+		else if (t_playerDirection == NORTH)
+		{
+			m_blockFacingPlayer.x = (t_playerPos.x / 50);
+			m_blockFacingPlayer.y = (t_playerPos.y / 50) - 1;
+		}
+		else if (t_playerDirection == WEST)
+		{
+			m_blockFacingPlayer.x = (t_playerPos.x / 50);
+			m_blockFacingPlayer.y = (t_playerPos.y / 50) + 1;
+		}
+	}
+}
+
 bool WorldSquare::containsBlock()
 {
 	return m_solidBlock;
+}
+
+sf::Vector2i WorldSquare::facingCrate()
+{
+	return m_blockFacingPlayer;
 }
 
 sf::Vector2f WorldSquare::getPosition()

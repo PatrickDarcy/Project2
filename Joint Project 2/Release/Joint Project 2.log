@@ -1,0 +1,22 @@
+﻿  AwesomeSq.cpp
+AwesomeSq.cpp(53): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+AwesomeSq.cpp(59): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+AwesomeSq.cpp(65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+AwesomeSq.cpp(71): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+AwesomeSq.cpp(77): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+AwesomeSq.cpp(83): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  EvilSq.cpp
+EvilSq.cpp(79): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+EvilSq.cpp(85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+EvilSq.cpp(91): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+EvilSq.cpp(97): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+EvilSq.cpp(103): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+EvilSq.cpp(109): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+Game.cpp(74): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  WorldSquare.cpp
+WorldSquare.cpp(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating code
+  All 111 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Joint Project 2.vcxproj -> C:\Users\New User\Desktop\temp\Project2\Release\Joint Project 2.exe
