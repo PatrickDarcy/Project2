@@ -5,7 +5,6 @@
 EvilSq::EvilSq()
 {
 	m_enemySpeed = { 2.5,2.5 };
-	m_enemyPos = { 50,500 };
 	m_enemy.setSize({SQUARE_SIZE,SQUARE_SIZE });
 	m_enemy.setFillColor(sf::Color::Red);
 	m_enemy.setPosition(m_enemyPos);
@@ -20,7 +19,8 @@ void EvilSq::update(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_
 
 void EvilSq::setPosition(sf::Vector2f t_enemyPos)
 {
-	m_enemy.setPosition(t_enemyPos);
+	m_enemyPos = t_enemyPos;
+	m_enemy.setPosition(m_enemyPos);
 }
 
 void EvilSq::movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown)
@@ -29,7 +29,7 @@ void EvilSq::movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool 
 	{
 		if (t_containsBlockRight == true)
 		{
-			m_direction = rand() % 3;
+			m_direction = 1;
 		}
 		else
 		{
@@ -41,7 +41,7 @@ void EvilSq::movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool 
 	{
 		if (t_containsBlockLeft == true)
 		{
-			m_direction = rand() % 3;
+			m_direction = 2;
 		}
 		else
 		{
@@ -53,7 +53,7 @@ void EvilSq::movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool 
 	{
 		if (t_containsBlockUp == true)
 		{
-			m_direction = rand() % 3;
+			m_direction = 3;
 		}
 		else
 		{
@@ -65,7 +65,7 @@ void EvilSq::movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool 
 	{
 		if (t_containsBlockDown == true)
 		{
-			m_direction = rand() % 3;
+			m_direction = 0;
 		}
 		else
 		{

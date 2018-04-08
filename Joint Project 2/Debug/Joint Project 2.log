@@ -1,3 +1,1 @@
-﻿  Game.cpp
-c:\users\new user\desktop\temp\project2\joint project 2\game.cpp(74): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Joint Project 2.vcxproj -> C:\Users\New User\Desktop\temp\Project2\Debug\Joint Project 2.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Platforms\Win32\PlatformToolsets\v141\Toolset.targets(34,5): error MSB8036: The Windows SDK version 10.0.15063.0 was not found. Install the required version of Windows SDK or change the SDK version in the project property pages or by right-clicking the solution and selecting "Retarget solution".

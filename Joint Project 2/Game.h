@@ -24,6 +24,8 @@ public:
 
 	WorldSquare m_maze[MAX_ROW][MAX_COL]; // the world grid
 
+	sf::Vector2i m_blockFacingPlayer;
+
 	int m_wall;
 	int m_crate;
 
@@ -36,6 +38,8 @@ public:	  // declaration of member functions
 	void	run();
 	void	update();
 	void	movingKickedCrate();
+	void	crateKicked(bool t_crateKicked, int t_playerDirection, sf::Vector2f t_playerPos);
+	sf::Vector2i facingCrate();
 	void	draw();
 	void	setUpMaze();
 	void	tileType();

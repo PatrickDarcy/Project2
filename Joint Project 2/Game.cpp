@@ -49,6 +49,16 @@ Game::Game() : m_window(sf::VideoMode(600, 600), "Project 2")
 	m_wall = 2;
 	m_crate = 1;
 
+	sf::Vector2f enemyPos = { 50,500 };
+
+	for (int i = 0; i < MAX_ENEMIES; i++)
+	{
+		m_enemies[i].setPosition(enemyPos);
+
+		enemyPos.x += 200;
+	}
+	
+
 }
 
 
@@ -122,52 +132,75 @@ void Game::update()
 		m_enemies[i].update(m_maze[m_enemies[i].enemyRow()][m_enemies[i].leftOfEnemy()].containsBlock(), m_maze[m_enemies[i].enemyRow()][m_enemies[i].rightOfEnemy()].containsBlock(),
 			m_maze[m_enemies[i].aboveEnemy()][m_enemies[i].enemyCol()].containsBlock(), m_maze[m_enemies[i].bellowEnemy()][m_enemies[i].enemyCol()].containsBlock());
 	}
-	
 
-	for (int row = 0; row < MAX_ROW; row++)
+	crateKicked(m_Player.playerKicked(), m_Player.playersDirection(), m_Player.getPosition());
+	movingKickedCrate();
+}
+
+void Game::movingKickedCrate()
+{
+	sf::Vector2f movingCrate;
+	sf::Vector2f crateSpeed = { 2.5,2.5 };
+
+	movingCrate = m_maze[facingCrate().x][facingCrate().y].getPosition();
+
+	if (m_Player.playerKicked() == true)
 	{
-		for (int col = 0; col < MAX_COL; col++)
+		if (m_Player.playersDirection() == EAST)
 		{
-			m_maze[row][col].update(m_Player.playerKicked(), m_Player.playersDIrection(), m_Player.getPosition());
+			movingCrate.x += crateSpeed.x;
+			m_maze[facingCrate().x][facingCrate().y].setPosition(movingCrate.x, movingCrate.y);
+		}
+		if (m_Player.playersDirection() == WEST)
+		{
+			movingCrate.x -= crateSpeed.x;
+			m_maze[facingCrate().x][facingCrate().y].setPosition(movingCrate.x, movingCrate.y);
+		}
+		if (m_Player.playersDirection() == NORTH)
+		{
+			movingCrate.y -= crateSpeed.y;
+			m_maze[facingCrate().x][facingCrate().y].setPosition(movingCrate.x, movingCrate.y);
+		}
+		if (m_Player.playersDirection() == SOUTH)
+		{
+			movingCrate.y += crateSpeed.y;
+			m_maze[facingCrate().x][facingCrate().y].setPosition(movingCrate.x, movingCrate.y);
 		}
 	}
 }
 
-//void Game::movingKickedCrate()
-//{
-//	sf::Vector2f movingCrate;
-//	sf::Vector2f crateSpeed = { 2.5,2.5 };
-//
-//	for (int row = 0; row < MAX_ROW; row++)
-//	{
-//
-//		for (int col = 0; col < MAX_COL; col++)
-//		{
-//			movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].getPosition();
-//
-//			if (m_Player.playersDIrection() == EAST)
-//			{
-//				movingCrate.x += crateSpeed.x;
-//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
-//			}
-//			if (m_Player.playersDIrection() == WEST)
-//			{
-//				movingCrate.x -= crateSpeed.x;
-//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
-//			}
-//			if (m_Player.playersDIrection() == NORTH)
-//			{
-//				movingCrate.y -= crateSpeed.y;
-//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
-//			}
-//			if (m_Player.playersDIrection() == EAST)
-//			{
-//				movingCrate.y += crateSpeed.y;
-//				movingCrate = m_maze[m_maze[row][col].facingCrate.x][m_maze[row][col].facingCrate.y].setPosition();
-//			}
-//		}
-//	}
-//}
+void Game::crateKicked(bool t_crateKicked, int t_playerDirection, sf::Vector2f t_playerPos)
+{
+	if (t_crateKicked == true)
+	{
+		if (t_playerDirection == EAST)
+		{
+			m_blockFacingPlayer.y = (t_playerPos.x / 50) + 1;
+			m_blockFacingPlayer.x = (t_playerPos.y / 50);
+		}
+		else if (t_playerDirection == WEST)
+		{
+			m_blockFacingPlayer.y = (t_playerPos.x / 50) - 1;
+			m_blockFacingPlayer.x = (t_playerPos.y / 50);
+		}
+		else if (t_playerDirection == NORTH)
+		{
+			m_blockFacingPlayer.y = (t_playerPos.x / 50);
+			m_blockFacingPlayer.x = (t_playerPos.y / 50) - 1;
+		}
+		else if (t_playerDirection == SOUTH)
+		{
+			m_blockFacingPlayer.y = (t_playerPos.x / 50);
+			m_blockFacingPlayer.x = (t_playerPos.y / 50) + 1;
+		}
+	}
+	
+}
+
+sf::Vector2i Game::facingCrate()
+{
+	return m_blockFacingPlayer;
+}
 
 
 

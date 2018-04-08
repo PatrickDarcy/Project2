@@ -17,6 +17,8 @@ AwesomeSq::AwesomeSq()
 	m_containsBlockDown = false;
 
 	m_didPlayerKick = false;
+
+	m_playersDirection == SOUTH;
 }
 
 void AwesomeSq::update()
@@ -24,27 +26,27 @@ void AwesomeSq::update()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		moveLeft();
+		m_didPlayerKick = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		moveRight();
+		m_didPlayerKick = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		moveUp();
+		m_didPlayerKick = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		moveDown();
+		m_didPlayerKick = false;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		playersDIrection();
+		playersDirection();
 		m_didPlayerKick = true;
-	}
-	else
-	{
-		m_didPlayerKick = false;
 	}
 
 	checkBoarder();
@@ -58,7 +60,7 @@ void AwesomeSq::wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, b
 	m_containsBlockDown = t_containsBlockDown;
 }
 
-int AwesomeSq::playersDIrection()
+int AwesomeSq::playersDirection()
 {
 	return m_playersDirection;
 }

@@ -10,7 +10,7 @@ const float SQUARE_SIZE = 50.0;
 
 const int MAX_ENEMIES = 2;
 
-const int EAST = 0;
-const int WEST = 1;
-const int NORTH = 2;
-const int SOUTH = 3;
+const int EAST = 1;
+const int WEST = 3;
+const int NORTH = 0;
+const int SOUTH = 2;
