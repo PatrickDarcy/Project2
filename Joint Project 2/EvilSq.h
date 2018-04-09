@@ -5,11 +5,10 @@
 class EvilSq
 {
 	// private data members
-	sf::RectangleShape m_enemy;
-	sf::Texture m_enemyDown;
-	sf::Texture m_enemyUp;
-	sf::Texture m_enemyRight;
-	sf::Texture m_ememyLeft;
+	sf::Sprite m_enemy;
+	sf::Texture m_enemyTemplate;
+	sf::IntRect m_rectSourceSprite;
+
 	sf::Vector2f m_enemyPos;
 	sf::Vector2f m_enemySpeed;
 
@@ -21,6 +20,7 @@ public:
 	void update(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown);
 	void setPosition(sf::Vector2f t_enemyPos);
 	void movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown);
+	void drawEnemy(sf::Time t_60FramesASec);
 	int leftOfEnemy();
 	int rightOfEnemy();
 	int aboveEnemy();

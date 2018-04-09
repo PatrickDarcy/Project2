@@ -108,7 +108,11 @@ void Game::run()
 		//only when the time since last update is greater than 1/60 update the world.
 		if (timeSinceLastUpdate > timePerFrame)
 		{
-
+			for (int i = 0; i < MAX_ENEMIES; i++)
+			{
+				m_enemies[i].drawEnemy(timeSinceLastUpdate);
+			}
+			m_Player.drawPlayer(timeSinceLastUpdate);
 			update();
 			draw();
 

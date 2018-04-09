@@ -5,9 +5,11 @@
 EvilSq::EvilSq()
 {
 	m_enemySpeed = { 2.5,2.5 };
-	m_enemy.setSize({SQUARE_SIZE,SQUARE_SIZE });
-	m_enemy.setFillColor(sf::Color::Red);
 	m_enemy.setPosition(m_enemyPos);
+
+	m_enemyTemplate.loadFromFile("ASSETS/IMAGES/087-Monster01.png");
+	m_rectSourceSprite = { 0,0,50,50 };
+	m_enemy.setTexture(m_enemyTemplate);
 
 	m_direction = rand() % 3;
 }
@@ -72,6 +74,22 @@ void EvilSq::movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool 
 			m_enemyPos.y += m_enemySpeed.y;
 			m_enemy.setPosition(m_enemyPos);
 		}
+	}
+}
+void EvilSq::drawEnemy(sf::Time t_60FramesASec)
+{
+	if (t_60FramesASec.asSeconds() > 1.0f/60.0f)
+	{
+		if (m_rectSourceSprite.left == 100)
+		{
+			m_rectSourceSprite.left = 0;
+		}
+		else
+		{
+			m_rectSourceSprite.left += 50;
+		}
+
+		m_enemy.setTextureRect(m_rectSourceSprite);
 	}
 }
 int EvilSq::leftOfEnemy()
