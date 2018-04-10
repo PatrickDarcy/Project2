@@ -84,6 +84,7 @@ void Game::run()
 	srand(time(nullptr)); // set the seed once
 	sf::Time timePerFrame = sf::seconds(1.0f / 60.0f);
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	sf::Time spriteAnimationSpeed = sf::seconds(0.0f);
 
 	// the clock object keeps the time.
 	sf::Clock clock;
@@ -103,6 +104,7 @@ void Game::run()
 
 		//get the time since last update and restart the clock
 		timeSinceLastUpdate += clock.restart();
+		spriteAnimationSpeed += sf::seconds(1.0f);
 
 		//update every 60th of a second
 		//only when the time since last update is greater than 1/60 update the world.
@@ -112,11 +114,15 @@ void Game::run()
 			{
 				m_enemies[i].drawEnemy(timeSinceLastUpdate);
 			}
-			m_Player.drawPlayer(timeSinceLastUpdate);
+			if (spriteAnimationSpeed == sf::seconds(1.0f))
+			{
+				m_Player.drawPlayer(timeSinceLastUpdate);
+			}
 			update();
 			draw();
 
 			// reset the timeSinceLastUpdate to 0 
+			spriteAnimationSpeed = sf::Time::Zero;
 			timeSinceLastUpdate = sf::Time::Zero;
 		}
 	}  // end while loop

@@ -7,9 +7,10 @@ AwesomeSq::AwesomeSq()
 	m_playerLocation = { 50,50 };
 	m_speed = { 2.5,2.5 };
 
+	m_playerTemplate.loadFromFile("ASSETS/IMAGES/penguin.png");
 	m_sourceSpriteRect = { 0,0,50,50 };
-	m_playerTemplate.loadFromFile("ASSEST/IMAGES/")
 	m_player.setTexture(m_playerTemplate);
+	
 	m_player.setPosition(m_playerLocation);
 
 	m_containsBlockLeft = false;
@@ -73,7 +74,7 @@ bool AwesomeSq::playerKicked()
 
 void AwesomeSq::drawPlayer(sf::Time t_60FramesASec)
 {
-	if (t_60FramesASec.asSeconds() > 1.0f / 60.0f)
+	if (t_60FramesASec.asSeconds() > 1.0f/60.0f )
 	{
 		if (m_sourceSpriteRect.left == 100)
 		{
