@@ -28,22 +28,31 @@ void AwesomeSq::update()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		moveLeft();
+		m_sourceSpriteRect.top = 50;
 		m_didPlayerKick = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		moveRight();
+		m_sourceSpriteRect.top = 100;
 		m_didPlayerKick = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		moveUp();
+		m_sourceSpriteRect.top = 150;
 		m_didPlayerKick = false;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		moveDown();
+		m_sourceSpriteRect.top = 0;
 		m_didPlayerKick = false;
+	}
+	else
+	{
+		m_sourceSpriteRect.left = 0;
+		m_sourceSpriteRect.top = 0;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
@@ -72,21 +81,20 @@ bool AwesomeSq::playerKicked()
 	return m_didPlayerKick;
 }
 
-void AwesomeSq::drawPlayer(sf::Time t_60FramesASec)
+void AwesomeSq::drawPlayer()
 {
-	if (t_60FramesASec.asSeconds() > 1.0f/60.0f )
+	
+	if (m_sourceSpriteRect.left == 100)
 	{
-		if (m_sourceSpriteRect.left == 100)
-		{
-			m_sourceSpriteRect.left = 0;
-		}
-		else
-		{
-			m_sourceSpriteRect.left += 50;
-		}
-
-		m_player.setTextureRect(m_sourceSpriteRect);
+		m_sourceSpriteRect.left = 0;
 	}
+	else
+	{
+		m_sourceSpriteRect.left += 50;
+	}
+
+	m_player.setTextureRect(m_sourceSpriteRect);
+	
 }
 
 int AwesomeSq::leftOfPlayer()

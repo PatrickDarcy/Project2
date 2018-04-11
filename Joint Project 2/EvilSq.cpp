@@ -31,48 +31,76 @@ void EvilSq::movement(bool t_containsBlockLeft, bool t_containsBlockRight, bool 
 	{
 		if (t_containsBlockRight == true)
 		{
-			m_direction = 1;
+			int random = rand() % 3;
+			random = random / 3.0;
+			while (random == 1)
+			{
+				random = rand() % 3;
+			}
+			m_direction = random;
 		}
 		else
 		{
 			m_enemyPos.x += m_enemySpeed.x;
 			m_enemy.setPosition(m_enemyPos);
+			m_rectSourceSprite.top = 100;
 		}
 	}
 	else if (m_direction == WEST)
 	{
 		if (t_containsBlockLeft == true)
 		{
-			m_direction = 2;
+			int random = rand() % 3;
+			random = random / 3.0;
+			while (random == 3)
+			{
+				random = rand() % 3;
+			}
+			m_direction = random;
 		}
 		else
 		{
 			m_enemyPos.x -= m_enemySpeed.x;
 			m_enemy.setPosition(m_enemyPos);
+			m_rectSourceSprite.top = 50;
 		}
 	}
 	else if (m_direction == NORTH)
 	{
 		if (t_containsBlockUp == true)
 		{
-			m_direction = 3;
+			int random = rand() % 3;
+			random = random / 3.0;
+			while (random == 0)
+			{
+				random = rand() % 3;
+			}
+			m_direction = random;
 		}
 		else
 		{
 			m_enemyPos.y -= m_enemySpeed.y;
 			m_enemy.setPosition(m_enemyPos);
+			m_rectSourceSprite.top = 150;
 		}
 	}
 	else if (m_direction == SOUTH)
 	{
 		if (t_containsBlockDown == true)
 		{
-			m_direction = 0;
+			int random = rand() % 11;
+			random = random / 3.0;
+			while (random == 2)
+			{
+				random = rand() % 3;
+			}
+			m_direction = random;
 		}
 		else
 		{
 			m_enemyPos.y += m_enemySpeed.y;
 			m_enemy.setPosition(m_enemyPos);
+			m_rectSourceSprite.top = 0;
 		}
 	}
 }

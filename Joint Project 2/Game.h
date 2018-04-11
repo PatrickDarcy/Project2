@@ -25,9 +25,11 @@ public:
 	WorldSquare m_maze[MAX_ROW][MAX_COL]; // the world grid
 
 	sf::Vector2i m_blockFacingPlayer;
+	bool m_itsACrate;
 
 	int m_wall;
 	int m_crate;
+	int m_newFrame;
 
 	EvilSq m_enemies[2];
 	AwesomeSq m_Player;

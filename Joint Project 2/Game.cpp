@@ -58,7 +58,8 @@ Game::Game() : m_window(sf::VideoMode(600, 600), "Project 2")
 		enemyPos.x += 200;
 	}
 	
-
+	m_newFrame = 0;
+	m_itsACrate = false;
 }
 
 
@@ -114,10 +115,7 @@ void Game::run()
 			{
 				m_enemies[i].drawEnemy(timeSinceLastUpdate);
 			}
-			if (spriteAnimationSpeed == sf::seconds(1.0f))
-			{
-				m_Player.drawPlayer(timeSinceLastUpdate);
-			}
+
 			update();
 			draw();
 
@@ -136,15 +134,31 @@ void Game::update()
 {
 	m_Player.update();
 	m_Player.wallCheck(m_maze[m_Player.playersRow()][m_Player.leftOfPlayer()].containsBlock(), m_maze[m_Player.playersRow()][m_Player.rightOfPlayer()].containsBlock(),
-					   m_maze[m_Player.abovePlayer()][m_Player.playersCol()].containsBlock(), m_maze[m_Player.bellowPlayer()][m_Player.playersCol()].containsBlock());
+		m_maze[m_Player.abovePlayer()][m_Player.playersCol()].containsBlock(), m_maze[m_Player.bellowPlayer()][m_Player.playersCol()].containsBlock());
 	for (int i = 0; i < MAX_ENEMIES; i++)
 	{
 		m_enemies[i].update(m_maze[m_enemies[i].enemyRow()][m_enemies[i].leftOfEnemy()].containsBlock(), m_maze[m_enemies[i].enemyRow()][m_enemies[i].rightOfEnemy()].containsBlock(),
 			m_maze[m_enemies[i].aboveEnemy()][m_enemies[i].enemyCol()].containsBlock(), m_maze[m_enemies[i].bellowEnemy()][m_enemies[i].enemyCol()].containsBlock());
 	}
 
+	m_newFrame++;
+	if (m_newFrame >= 15)
+	{
+		m_Player.drawPlayer();
+		m_newFrame = 0;
+	}
+
 	crateKicked(m_Player.playerKicked(), m_Player.playersDirection(), m_Player.getPosition());
-	movingKickedCrate();
+	if (m_itsACrate == true)
+	{
+		movingKickedCrate();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+	{
+		Game();
+		LoadContent();
+	}
+
 }
 
 void Game::movingKickedCrate()
@@ -187,21 +201,53 @@ void Game::crateKicked(bool t_crateKicked, int t_playerDirection, sf::Vector2f t
 		{
 			m_blockFacingPlayer.y = (t_playerPos.x / 50) + 1;
 			m_blockFacingPlayer.x = (t_playerPos.y / 50);
+			if (m_maze[m_blockFacingPlayer.x][m_blockFacingPlayer.y].isItACrate() == true)
+			{
+				m_itsACrate = true;
+			}
+			else
+			{
+				m_itsACrate = false;
+			}
 		}
 		else if (t_playerDirection == WEST)
 		{
 			m_blockFacingPlayer.y = (t_playerPos.x / 50) - 1;
 			m_blockFacingPlayer.x = (t_playerPos.y / 50);
+			if (m_maze[m_blockFacingPlayer.x][m_blockFacingPlayer.y].isItACrate() == true)
+			{
+				m_itsACrate = true;
+			}
+			else
+			{
+				m_itsACrate = false;
+			}
 		}
 		else if (t_playerDirection == NORTH)
 		{
 			m_blockFacingPlayer.y = (t_playerPos.x / 50);
 			m_blockFacingPlayer.x = (t_playerPos.y / 50) - 1;
+			if (m_maze[m_blockFacingPlayer.x][m_blockFacingPlayer.y].isItACrate() == true)
+			{
+				m_itsACrate = true;
+			}
+			else
+			{
+				m_itsACrate = false;
+			}
 		}
 		else if (t_playerDirection == SOUTH)
 		{
 			m_blockFacingPlayer.y = (t_playerPos.x / 50);
 			m_blockFacingPlayer.x = (t_playerPos.y / 50) + 1;
+			if (m_maze[m_blockFacingPlayer.x][m_blockFacingPlayer.y].isItACrate() == true)
+			{
+				m_itsACrate = true;
+			}
+			else
+			{
+				m_itsACrate = false;
+			}
 		}
 	}
 	
@@ -298,13 +344,9 @@ void Game::tileType()
 	int row9 = 9;
 
 	m_maze[row9][6].assignTile(m_wall);
+	m_maze[row9][7].assignTile(m_wall);
 	m_maze[row9][8].assignTile(m_wall);
 	m_maze[row9][9].assignTile(m_crate);
-	m_maze[row9][10].assignTile(m_wall);
-
-	int row10 = 10;
-
-	m_maze[row10][6].assignTile(m_wall);
 
 	int row11 = 11;
 	col = 11;

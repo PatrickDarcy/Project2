@@ -5,7 +5,7 @@
 class AwesomeSq
 {
 	// private data members
-	sf::Sprite m_player;
+	sf::Sprite m_player {m_playerTemplate, m_sourceSpriteRect};
 	sf::Texture m_playerTemplate;
 	sf::IntRect m_sourceSpriteRect;
 
@@ -28,7 +28,7 @@ public:
 	void wallCheck(bool t_containsBlockLeft, bool t_containsBlockRight, bool t_containsBlockUp, bool t_containsBlockDown);
 	int playersDirection();
 	bool playerKicked();
-	void drawPlayer(sf::Time t_60FramesASec);
+	void drawPlayer();
 	void moveLeft();
 	int leftOfPlayer();
 	int rightOfPlayer();

@@ -1,10 +1,13 @@
-﻿  AwesomeSq.cpp
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(23): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(94): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(100): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(106): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(112): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(118): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\c00226157\desktop\temp\project2\joint project 2\awesomesq.cpp(124): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  EvilSq.cpp
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(54): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(73): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(92): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(125): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(131): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(137): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(143): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(149): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\c00226157\desktop\temp\project2\joint project 2\evilsq.cpp(155): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Joint Project 2.vcxproj -> C:\Users\C00226157\Desktop\temp\Project2\Debug\Joint Project 2.exe
   Joint Project 2.vcxproj -> C:\Users\C00226157\Desktop\temp\Project2\Debug\Joint Project 2.pdb (Partial PDB)
